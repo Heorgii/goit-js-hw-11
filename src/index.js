@@ -1,16 +1,17 @@
 // import { fetchImages } from "./js/fetch-images";
-// import Notiflix from 'notiflix';
+import Notiflix from 'notiflix';
 // import SimpleLightbox from "simplelightbox";
-// import "simplelightbox/dist/simple-lightbox.min.css";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
 const searchForm = document.querySelector('#search-form');
 const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more-btn');
 let query = '';
+
 searchForm.addEventListener('submit', onSearchForm);
 loadMoreBtn.addEventListener('click', onLoadMoreBtn);
 
-function onSearchForm(e){
+function onLoadMoreBtn(e){
     e.preventDevault();
 
     if(query == ''){
