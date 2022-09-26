@@ -6,7 +6,7 @@ function renderGallery(img) {
     const markup = img.map(image => {
         const { webformatURL, largeImageURL, tags, views, likes, comments, downloads } = image;
         return `
-      <a href = "${largeImageURL}">
+      <a class="photo-box" href = "${largeImageURL}">
        <div class="photo-card">
         <img src="${webformatURL}" alt="${tags}" loading="lazy" />
         <div class="info">
@@ -20,5 +20,5 @@ function renderGallery(img) {
         `;
     }).join();
 
-    gallery.innerHTML(markup);
-}
+      gallery.insertAdjacentHTML('beforeend', markup);
+  }
