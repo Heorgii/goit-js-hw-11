@@ -10,22 +10,20 @@ const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more-btn');
 let searchQuery = '';
 
-
 searchForm.addEventListener('submit', onSearch);
 loadMoreBtn.addEventListener('click', onLoadMore);
 
 function onSearch(e){
     e.preventDevault();
-    page = 1;
     searchQuery = e.currentTarget.elements.query.value;
-    gallery.innerHTML('');
+    // gallery.innerHTML('');
     // loadMoreBtn.classList.add('is-hidden');
-
     // if(searchQuery == ''){
     //     alertEmptySearch();
     //     return;
     // }
-
+     ;
+    console.log(fetchImages());
 }
 
 function onLoadMore(){
