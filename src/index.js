@@ -1,23 +1,35 @@
-// import { fetchImages } from "./js/fetch-images";
+import './sass/index.scss';
+import { fetchImages } from "./js/fetch-images";
+import { renderGallery } from "./js/render-gallery";
 import Notiflix from 'notiflix';
-// import SimpleLightbox from "simplelightbox";
+import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 const searchForm = document.querySelector('#search-form');
 const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more-btn');
-let query = '';
+let searchQuery = '';
 
-searchForm.addEventListener('submit', onSearchForm);
-loadMoreBtn.addEventListener('click', onLoadMoreBtn);
 
-function onLoadMoreBtn(e){
+searchForm.addEventListener('submit', onSearch);
+loadMoreBtn.addEventListener('click', onLoadMore);
+
+function onSearch(e){
     e.preventDevault();
+    page = 1;
+    searchQuery = e.currentTarget.elements.query.value;
+    gallery.innerHTML('');
+    // loadMoreBtn.classList.add('is-hidden');
 
-    if(query == ''){
-        alertEmptySearch();
-        return;
-    }
+    // if(searchQuery == ''){
+    //     alertEmptySearch();
+    //     return;
+    // }
+
+}
+
+function onLoadMore(){
+    
 }
 
 function alertSuccess(data){
