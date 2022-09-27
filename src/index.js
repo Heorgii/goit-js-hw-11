@@ -56,8 +56,7 @@ function onLoadMore() {
             renderGallery(data.hits);
             simpleLightBox = new SimpleLightbox('.gallery a').refresh();
 
-            const totalPages = Math.ceil(data.totalHits / perPage);
-            if (page > totalPages) {
+            if (!page) {
                 loadMoreBtn.classList.add('is-hidden');
                 alertSearchEnd();
             }
