@@ -18,10 +18,10 @@ loadMoreBtn.addEventListener('click', onLoadMore);
 
 function onSearch(e) {
     e.preventDefault();
+    page = 1;
     query = e.currentTarget.searchQuery.value.trim();
     gallery.innerHTML = '';
     loadMoreBtn.classList.add('is-hidden');
-
     if (query === '') {
         alertEmptySearch();
         return;
@@ -39,7 +39,7 @@ function onSearch(e) {
                 if (data.totalHits > perPage) {
                     loadMoreBtn.classList.remove('is-hidden');
                 }
-            }
+            } 
         })
         .catch(error => console.log(error))
         .finally(() => {
@@ -56,7 +56,8 @@ function onLoadMore() {
             renderGallery(data.hits);
             simpleLightBox = new SimpleLightbox('.gallery a').refresh();
 
-            if (!page) {
+            const totalPages = Math.ceil(data.totalHits / perPage);
+            if (page > totalPages) {
                 loadMoreBtn.classList.add('is-hidden');
                 alertSearchEnd();
             }
